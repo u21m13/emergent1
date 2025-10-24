@@ -81,6 +81,43 @@ async function handleRoute(request, { params }) {
       return handleCORS(NextResponse.json(cleanedStatusChecks))
     }
 
+    // Orders endpoints - POST /api/orders
+    if (route === '/orders' && method === 'POST') {
+      const body = await request.json()
+      
+      const order = {
+        orderId: `ORD-${Date.now()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`,
+        customer: body.customer,
+        items: body.items,
+        total: body.total,
+        status: 'confirmed',
+        paymentStatus: 'pending',
+        orderDate: body.orderDate || new Date().toISOString(),
+        createdAt: new Date(),
+      }
+
+      await db.collection('orders').insertOne(order)
+      
+      // Remove MongoDB's _id field from response
+      const { _id, ...orderResponse } = order
+      
+      return handleCORS(NextResponse.json(orderResponse))
+    }
+
+    // Orders endpoints - GET /api/orders
+    if (route === '/orders' && method === 'GET') {
+      const orders = await db.collection('orders')
+        .find({})
+        .sort({ createdAt: -1 })
+        .limit(100)
+        .toArray()
+
+      // Remove MongoDB's _id field from response
+      const cleanedOrders = orders.map(({ _id, ...rest }) => rest)
+      
+      return handleCORS(NextResponse.json(cleanedOrders))
+    }
+
     // Route not found
     return handleCORS(NextResponse.json(
       { error: `Route ${route} not found` }, 
