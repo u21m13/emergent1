@@ -1,0 +1,34 @@
+[
+  {
+    "id": "king-bedsheets",
+    "title": "King-Size Bed Sheets (108x108)",
+    "handle": "king-size-bedsheets",
+    "description": "Luxurious king-size bedsheets featuring traditional Indian prints and premium cotton fabric for ultimate comfort.",
+    "image": "https://images.unsplash.com/photo-1633605015660-b0f2dbad3bf2",
+    "productCount": 3
+  },
+  {
+    "id": "double-bedsheets",
+    "title": "Double-Bed Bedsheets (90x108)",
+    "handle": "double-bed-bedsheets",
+    "description": "Perfect double-bed bedsheets with exquisite block prints and comfortable pure cotton fabric.",
+    "image": "https://images.unsplash.com/photo-1746549854902-332ec790ac7c",
+    "productCount": 2
+  },
+  {
+    "id": "mughal-quilts",
+    "title": "Mughal Print Quilts (Razai)",
+    "handle": "mughal-print-quilts",
+    "description": "Handcrafted quilts featuring royal Mughal patterns and calligraphy, perfect for winter warmth.",
+    "image": "https://images.unsplash.com/photo-1720700955550-0b3bbe66b093",
+    "productCount": 1
+  },
+  {
+    "id": "block-print-quilts",
+    "title": "Block Print Quilts",
+    "handle": "block-print-quilts",
+    "description": "Authentic Jaipuri block print quilts crafted by master artisans using traditional techniques.",
+    "image": "https://images.unsplash.com/photo-1575277340549-70f2441dee09",
+    "productCount": 2
+  }
+]
